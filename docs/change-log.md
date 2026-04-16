@@ -1,15 +1,8 @@
-For versioning, I’d recommend:
-- `V1` = current stable baseline
-- `V1.1` = small safe enhancements
-- `V2` = bigger structural changes
+# Change Log
 
-For GitHub specifically, your first commit set should be:
-- baseline script
-- README
-- change log
-- gitignore
-- design doc only if you are allowed to store it there
-
-One caution: do **not** upload customer-sensitive design docs, tenant names, support emails, or internal domains unless the repo is private and approved for that content.
-
-Next step, I can draft the full **README.md**, **CHANGELOG.md**, and recommended **repo folder structure** for your V1 repo.
+## V1
+- Baseline stable release
+- Anti-Phish actions updated to quarantine with AdminOnlyAccessPolicy
+- Rules deploy disabled by default
+- Inbound and outbound anti-spam disable behavior corrected
+- Safe Links, Safe Attachments, and Anti-Malware rule disable logic aligned
