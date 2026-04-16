@@ -1,1 +1,8 @@
-
+*.log
+*.tmp
+*.bak
+*.user
+*.secret
+*.json
+!examples/sample-output.json
+.vscode/
