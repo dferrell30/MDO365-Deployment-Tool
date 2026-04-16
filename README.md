@@ -22,6 +22,7 @@ It deploys core threat protection policies while ensuring all enforcement rules 
 * [Features](#-features)
 * [Prerequisites](#-prerequisites)
 * [Usage](#-usage)
+* [Export Current Configuration](#-export-current-configuration)
 * [Deployment Behavior](#-deployment-behavior)
 * [Project Structure](#-project-structure)
 * [Validation](#-validation)
@@ -81,6 +82,64 @@ Connect-ExchangeOnline
 
 ---
 
+## 📊 Export Current Configuration
+
+This project includes a **separate reporting script** that exports the current Defender for Office 365 configuration.
+
+### What it does
+
+* Collects all deployed policies and rules
+* Outputs:
+
+  * **JSON** (for automation / comparison)
+  * **HTML** (for readable reporting)
+
+### Covered Areas
+
+* Anti-Phish policies and rules
+* Anti-Spam (Inbound & Outbound)
+* Safe Links
+* Safe Attachments
+* Anti-Malware
+* Accepted domains
+
+---
+
+### Run Export
+
+```powershell
+.\scripts\Export-DefenderForOffice365Report.ps1
+```
+
+---
+
+### Optional Parameters
+
+```powershell
+# Auto-connect if not already connected
+.\scripts\Export-DefenderForOffice365Report.ps1 -ConnectIfNeeded
+
+# Specify output folder
+.\scripts\Export-DefenderForOffice365Report.ps1 -OutputFolder .\output
+```
+
+---
+
+### Output Files
+
+* `DefenderForOffice365-<timestamp>.json`
+* `DefenderForOffice365-<timestamp>.html`
+
+---
+
+### Notes
+
+* Export script is **read-only**
+* Does not modify tenant configuration
+* Safe to run anytime
+
+---
+
 ## ⚙️ Deployment Behavior
 
 ### Policies
@@ -112,7 +171,8 @@ This ensures:
 │   ├── change-log.md
 │   └── deployment-notes.md
 ├── scripts/
-│   └── DefenderforOffice365DeploymentV1.ps1
+│   ├── DefenderforOffice365DeploymentV1.ps1
+│   └── Export-DefenderForOffice365Report.ps1
 ├── examples/
 │   └── sample-output.json
 └── tests/
@@ -136,11 +196,10 @@ After deployment, confirm:
 
 ## 🧭 Roadmap
 
-* JSON export/reporting module
-* Deploy-all wrapper script
 * Config-driven deployments (JSON input)
 * Logging and reporting enhancements
 * Policy comparison/diff mode
+* CI/CD pipeline integration
 
 ---
 
