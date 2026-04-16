@@ -1,4 +1,4 @@
-=# Defender for Office 365 Deployment Tool
+# Defender for Office 365 Deployment Tool
 
 ## Overview
 
@@ -11,7 +11,7 @@ The script deploys core threat protection policies and ensures they are configur
 ## Current Version
 
 **V1 (Baseline)**
-Derived from `DefenderforOffice365DeploymentV1_3.ps1`
+Script: `DefenderforOffice365DeploymentV1.ps1`
 
 ---
 
