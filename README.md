@@ -1,37 +1,68 @@
 # Defender for Office 365 Deployment Tool
 
-## Overview
-
-This PowerShell-based deployment tool automates the configuration of Microsoft Defender for Office 365 security policies using a Zero Trust-aligned approach.
-
-The script deploys core threat protection policies and ensures they are configured but **disabled by default** for safe, staged rollout.
-
----
-
-## Current Version
-
-**V1 (Baseline)**
-Script: `DefenderforOffice365DeploymentV1.ps1`
+![Version](https://img.shields.io/badge/version-V1-blue)
+![PowerShell](https://img.shields.io/badge/powershell-5.1%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Microsoft%20365-lightgrey)
+![Status](https://img.shields.io/badge/status-stable-success)
 
 ---
 
-## Features
+## 📌 Overview
+
+This PowerShell-based deployment tool automates the configuration of Microsoft Defender for Office 365 using a Zero Trust-aligned security model.
+
+It deploys core threat protection policies while ensuring all enforcement rules are **disabled by default** for safe, controlled rollout.
+
+---
+
+## 📖 Table of Contents
+
+* [Overview](#-overview)
+* [Quick Start](#-quick-start)
+* [Features](#-features)
+* [Prerequisites](#-prerequisites)
+* [Usage](#-usage)
+* [Deployment Behavior](#-deployment-behavior)
+* [Project Structure](#-project-structure)
+* [Validation](#-validation)
+* [Roadmap](#-roadmap)
+* [Change Log](#-change-log)
+
+---
+
+## ⚡ Quick Start
+
+```powershell
+# Connect to Exchange Online
+Connect-ExchangeOnline
+
+# Run deployment
+.\scripts\DefenderforOffice365DeploymentV1.ps1
+```
+
+---
+
+## 🚀 Features
 
 * Anti-Phishing policy deployment (P2-aligned)
-* Anti-Spam (Inbound & Outbound) policy deployment
-* Safe Links policy deployment
-* Safe Attachments policy deployment
-* Anti-Malware policy deployment
-* Policies configured with:
+* Anti-Spam deployment
 
-  * Quarantine enforcement
-  * Admin-only access where applicable
-* **Rules deployed in disabled state by default**
-* Designed for repeatable, idempotent execution
+  * Inbound protection
+  * Outbound protection
+* Safe Links protection
+* Safe Attachments protection
+* Anti-Malware protection
+
+### Security Behavior
+
+* Phishing → Quarantine (**AdminOnlyAccessPolicy**)
+* Malware → Block & quarantine
+* Spam → Strict filtering with quarantine actions
+* URL protection → Real-time Safe Links scanning
 
 ---
 
-## Prerequisites
+## 🔧 Prerequisites
 
 * Exchange Online PowerShell Module
 * Microsoft Defender for Office 365 licensing
@@ -42,19 +73,7 @@ Script: `DefenderforOffice365DeploymentV1.ps1`
 
 ---
 
-## Setup
-
-### Connect to Exchange Online
-
-```powershell
-Connect-ExchangeOnline
-```
-
----
-
-## Usage
-
-### Run Full Deployment
+## ▶️ Usage
 
 ```powershell
 .\scripts\DefenderforOffice365DeploymentV1.ps1
@@ -62,24 +81,28 @@ Connect-ExchangeOnline
 
 ---
 
-## Deployment Behavior
+## ⚙️ Deployment Behavior
 
-* Policies are **created or updated**
-* Rules are:
+### Policies
 
-  * Created if missing
-  * Updated if existing
-  * **Forced to Disabled state after execution**
+* Created if missing
+* Updated if existing
 
-This allows:
+### Rules
 
-* Safe validation
+* Created if missing
+* Updated if existing
+* **Forced to Disabled after deployment**
+
+This ensures:
+
+* No immediate mail flow disruption
+* Safe staged rollout
 * Controlled enablement
-* Reduced risk of mail disruption
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
 ```text
 .
@@ -98,26 +121,53 @@ This allows:
 
 ---
 
-## Notes
+## ✅ Validation
 
-* Quarantine policies must exist in the tenant:
+After deployment, confirm:
 
-  * `AdminOnlyAccessPolicy`
-  * `DefaultFullAccesswithNotificationPolicy`
-* Some settings (users/domains) may require customization per environment
-* Script uses compatibility checks to support multiple EXO module versions
+* Anti-Phish rule → **Disabled**
+* Inbound spam rule → **Disabled**
+* Outbound spam rule → **Disabled**
+* Safe Links rule → **Disabled**
+* Safe Attachments rule → **Disabled**
+* Anti-Malware rule → **Disabled**
 
 ---
 
-## Roadmap
+## 🧭 Roadmap
 
 * JSON export/reporting module
 * Deploy-all wrapper script
-* Config-driven deployment (JSON input)
-* Logging & reporting enhancements
+* Config-driven deployments (JSON input)
+* Logging and reporting enhancements
+* Policy comparison/diff mode
 
 ---
 
-## Change Log
+## 📜 Change Log
 
-See `docs/change-log.md`
+See: `docs/change-log.md`
+
+---
+
+## ⚠️ Notes
+
+* Required quarantine policies:
+
+  * `AdminOnlyAccessPolicy`
+  * `DefaultFullAccesswithNotificationPolicy`
+* Some settings may require tenant-specific tuning
+* Script uses compatibility checks for different EXO versions
+
+---
+
+## 🛡️ Disclaimer
+
+This tool applies security policies that may impact mail flow.
+Always test in a controlled environment before enabling rules in production.
+
+---
+
+## 🤝 Contributing (Optional Future)
+
+Contributions, improvements, and feedback are welcome as the project evolves.
