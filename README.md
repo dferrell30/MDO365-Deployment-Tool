@@ -1,259 +1,224 @@
-# Defender for Office 365 Deployment Tool
+# 🛡️ DFO365 Deployment Tool
 
-![Version](https://img.shields.io/badge/version-V1-blue)
-![PowerShell](https://img.shields.io/badge/powershell-5.1%2B-blue)
-![Platform](https://img.shields.io/badge/platform-Microsoft%20365-lightgrey)
-![Status](https://img.shields.io/badge/status-stable-success)
+## 🚀 Defender for Office 365 Baseline Deployment (V1)
 
 ---
 
-## 📌 Overview
+## 📌 Current Version
 
-This PowerShell-based deployment tool automates the configuration of Microsoft Defender for Office 365 using a Zero Trust-aligned security model.
+**V1.0.0 — Baseline Release**
 
-It deploys core threat protection policies while ensuring all enforcement rules are **disabled by default** for safe, controlled rollout.
+This tool provides a **repeatable, safe deployment** of Microsoft Defender for Office 365 security policies aligned to a Zero Trust approach.
 
----
+All policies are deployed with:
 
-## 📖 Table of Contents
-
-* [Overview](#-overview)
-* [Quick Start](#-quick-start)
-* [Features](#-features)
-* [Prerequisites](#-prerequisites)
-* [Usage](#-usage)
-* [Export Current Configuration](#-export-current-configuration)
-* [Deployment Behavior](#-deployment-behavior)
-* [Project Structure](#-project-structure)
-* [Validation](#-validation)
-* [Roadmap](#-roadmap)
-* [Change Log](#-change-log)
+* ✅ Correct security settings applied
+* ✅ Rules created but **disabled by default**
+* ✅ Safe re-run behavior (idempotent deployment)
 
 ---
 
-## ⚡ Quick Start
+## 🎯 Purpose
+
+The DFO365 Deployment Tool simplifies and standardizes the deployment of:
+
+* Anti-Phishing (P2)
+* Anti-Spam (Inbound & Outbound)
+* Safe Links
+* Safe Attachments
+* Anti-Malware
+
+---
+
+## ⚠️ Important Behavior
+
+* Policies are created or updated
+* Rules are **always deployed disabled**
+* No impact to mail flow during deployment
+* Safe to run multiple times
+
+---
+
+## 🧱 Project Structure
+
+```text
+repo/
+├── scripts/
+│   ├── DFO365_V1.ps1
+│   ├── Export-DefenderForOffice365Report.ps1
+│   └── Test-DFO365DeploymentValidation.ps1
+│
+├── tests/
+│   ├── smoke-test-checklist.md
+│   └── validation-scenarios.md
+```
+
+---
+
+## ⚙️ Requirements
+
+* PowerShell 5.1 or later
+* ExchangeOnlineManagement module
+
+Install module:
+
+```powershell
+Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber
+```
+
+---
+
+## 🔐 Permissions Required
+
+* Global Administrator **or**
+* Security Administrator
+
+---
+
+## 🚀 Quick Start
 
 ```powershell
 # Connect to Exchange Online
 Connect-ExchangeOnline
 
-# Run deployment
-.\scripts\DefenderforOffice365DeploymentV1.ps1
+# Run the tool
+.\scripts\DFO365_V1.ps1
 ```
 
 ---
 
-## 🚀 Features
+## 🧪 Deployment Workflow
 
-* Anti-Phishing policy deployment (P2-aligned)
-* Anti-Spam deployment
-
-  * Inbound protection
-  * Outbound protection
-* Safe Links protection
-* Safe Attachments protection
-* Anti-Malware protection
-
-### Security Behavior
-
-* Phishing → Quarantine (**AdminOnlyAccessPolicy**)
-* Malware → Block & quarantine
-* Spam → Strict filtering with quarantine actions
-* URL protection → Real-time Safe Links scanning
-
----
-
-## 🔧 Prerequisites
-
-* Exchange Online PowerShell Module
-* Microsoft Defender for Office 365 licensing
-* Required roles:
-
-  * Security Administrator
-  * Exchange Administrator (recommended)
-
----
-
-## ▶️ Usage
-
-```powershell
-.\scripts\DefenderforOffice365DeploymentV1.ps1
-```
-
----
-
-## 📊 Export Current Configuration
-
-This project includes a **separate reporting script** that exports the current Defender for Office 365 configuration.
-
-### What it does
-
-* Collects all deployed policies and rules
-* Outputs:
-
-  * **JSON** (for automation / comparison)
-  * **HTML** (for readable reporting)
-
-### Covered Areas
-
-* Anti-Phish policies and rules
-* Anti-Spam (Inbound & Outbound)
-* Safe Links
-* Safe Attachments
-* Anti-Malware
-* Accepted domains
-
----
-
-### Run Export
-
-```powershell
-.\scripts\Export-DefenderForOffice365Report.ps1
-```
-
----
-
-### Optional Parameters
-
-```powershell
-# Auto-connect if not already connected
-.\scripts\Export-DefenderForOffice365Report.ps1 -ConnectIfNeeded
-
-# Specify output folder
-.\scripts\Export-DefenderForOffice365Report.ps1 -OutputFolder .\output
-```
-
----
-
-### Output Files
-
-* `DefenderForOffice365-<timestamp>.json`
-* `DefenderForOffice365-<timestamp>.html`
-
----
-
-### Notes
-
-* Export script is **read-only**
-* Does not modify tenant configuration
-* Safe to run anytime
-
----
-
-## ⚙️ Deployment Behavior
-
-### Policies
-
-* Created if missing
-* Updated if existing
-
-### Rules
-
-* Created if missing
-* Updated if existing
-* **Forced to Disabled after deployment**
-
-This ensures:
-
-* No immediate mail flow disruption
-* Safe staged rollout
-* Controlled enablement
-
----
-
-## 🗂️ Project Structure
-
-```text
-.
-├── README.md
-├── .gitignore
-├── docs/
-│   ├── change-log.md
-│   └── deployment-notes.md
-├── scripts/
-│   ├── DefenderforOffice365DeploymentV1.ps1
-│   └── Export-DefenderForOffice365Report.ps1
-├── examples/
-│   └── sample-output.json
-└── tests/
-    └── smoke-test-checklist.md
-```
+1. Launch tool
+2. Connect to tenant
+3. Run **Quick Build: All Baselines**
+4. Validate deployment
+5. Export configuration (optional)
 
 ---
 
 ## ✅ Validation
 
-After deployment, confirm:
+### 🔹 Smoke Test (Manual)
 
-* Anti-Phish rule → **Disabled**
-* Inbound spam rule → **Disabled**
-* Outbound spam rule → **Disabled**
-* Safe Links rule → **Disabled**
-* Safe Attachments rule → **Disabled**
-* Anti-Malware rule → **Disabled**
+Located in:
 
----
+```text
+tests/smoke-test-checklist.md
+```
 
-## 🧭 Roadmap
-
-* Config-driven deployments (JSON input)
-* Logging and reporting enhancements
-* Policy comparison/diff mode
-* CI/CD pipeline integration
+Provides a quick verification checklist after deployment.
 
 ---
 
-## 📜 Change Log
+### 🔹 Automated Validation
 
-See: `docs/change-log.md`
+```powershell
+.\scripts\Test-DFO365DeploymentValidation.ps1
+```
 
----
+Validates:
 
-## ⚠️ Notes
-
-* Required quarantine policies:
-
-  * `AdminOnlyAccessPolicy`
-  * `DefaultFullAccesswithNotificationPolicy`
-* Some settings may require tenant-specific tuning
-* Script uses compatibility checks for different EXO versions
+* Policy existence
+* Rule existence
+* Rule disabled state
 
 ---
 
-## ⚠️ Disclaimer
+### 🔹 Validation Scenarios (Real Testing)
 
-This tool is provided for **educational, testing, and security validation purposes only**.
+Located in:
 
-Use of this tool should be limited to:
-- Authorized environments  
-- Lab or approved enterprise systems  
+```text
+tests/validation-scenarios.md
+```
 
-The author assumes **no liability or responsibility** for:
-- Misuse of this tool  
-- Damage to systems  
-- Unauthorized or improper use  
+Includes:
 
-By using this tool, you agree to use it in a lawful and responsible manner.
----
-
-This project is not affiliated with or endorsed by Microsoft.
----
-
-
-## ⚖️ Professional Disclaimer
-
-This project is an independent work developed in a personal capacity.
-
-The views, opinions, code, and content expressed in this repository are solely my own and do not reflect the views, policies, or positions of any current or future employer, client, or affiliated organization.
-
-No employer, past, present, or future, has reviewed, approved, endorsed, or is in any way associated with these works.
-
-This project was developed outside the scope of any employment and without the use of proprietary, confidential, or restricted resources.
-
-All code/language in this repository is provided under the terms of the included MIT License.
+* Phishing simulation
+* Safe Links behavior
+* Safe Attachments behavior
+* Spam filtering
+* Malware testing (EICAR)
 
 ---
 
-## 🤝 Contributing (Optional Future)
+## 📤 Export & Reporting
 
-Contributions, improvements, and feedback are welcome as the project evolves.
+The tool includes export capabilities:
+
+```powershell
+.\scripts\Export-DefenderForOffice365Report.ps1
+```
+
+Outputs:
+
+* JSON configuration
+* Optional HTML report
+
+---
+
+## 🧠 Design Principles
+
+* Idempotent deployment
+* Safe-by-default (no rules enabled)
+* Clear UI feedback
+* Minimal tenant impact
+* Repeatable baseline configuration
+
+---
+
+## 🔄 Versioning
+
+| Version | Description                                   |
+| ------- | --------------------------------------------- |
+| V1.0.0  | Baseline deployment tool                      |
+| V1.1    | Validation + reporting improvements (planned) |
+| V2      | JSON-driven configuration engine (planned)    |
+
+---
+
+## 🚧 Roadmap
+
+### 🔹 V1.1
+
+* Enhanced validation script
+* Improved reporting
+* Logging to file
+
+### 🔹 V2
+
+* JSON-driven configuration
+* Multiple deployment profiles
+* GUI config loading
+* Config vs tenant comparison
+
+---
+
+## 💬 Notes
+
+> Some Exchange Online rules may default to enabled on creation.
+> Rules are explicitly set to disabled during deployment.
+
+---
+
+## 📌 Disclaimer
+
+This tool is provided as-is for deployment acceleration and standardization.
+Always validate in a test tenant before production use.
+
+---
+
+## ⭐ Summary
+
+DFO365 Deployment Tool V1 delivers:
+
+* Reliable Defender for Office 365 baseline deployment
+* Safe, repeatable execution
+* Clear validation and testing approach
+
+---
+
+## 🙌 Contributions
+
+Feedback and improvements are welcome.
