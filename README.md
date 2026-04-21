@@ -84,25 +84,38 @@ Install module:
 
 ```powershell
 Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber
-🔐 Permissions Required
+```
+---
+
+# 🔐 Permissions Required
 Global Administrator or
 Security Administrator
-🚀 Quick Start
+
+# 🚀 Quick Start
+
+```Powershell
 Connect-ExchangeOnline
 .\scripts\DFO365_V1.ps1
-🧪 Deployment Workflow
+```
+
+# 🧪 Deployment Workflow
+
 Launch tool
 Connect to tenant
 Run Quick Build: All Baselines
 Validate deployment
 Export configuration (optional)
-✅ Validation
+
+
+# ✅ Validation
 🔹 Smoke Test (Manual)
 
 Location:
 
 tests/smoke-test-checklist.md
+
 🔹 Automated Validation
+
 .\scripts\Test-DFO365DeploymentValidation.ps1
 
 Validates:
@@ -123,25 +136,29 @@ Safe Links behavior
 Safe Attachments behavior
 Spam filtering
 Malware testing (EICAR)
-📤 Export & Reporting
+
+# 📤 Export & Reporting
 .\scripts\Export-DefenderForOffice365Report.ps1
 
 Outputs:
 
 JSON configuration
 Optional HTML report
-🧠 Design Principles
+
+# 🧠 Design Principles
 Idempotent deployment
 Safe-by-default (no rules enabled)
 Clear UI feedback
 Minimal tenant impact
 Repeatable baseline configuration
-🔄 Versioning
+
+# 🔄 Versioning
 Version	Description
 V1.0.0	Baseline deployment tool
 V1.1	Validation + reporting improvements (planned)
 V2	JSON-driven configuration engine (planned)
-🚧 Roadmap
+
+# 🚧 Roadmap
 V1.1
 Enhanced validation script
 Improved reporting
@@ -156,19 +173,20 @@ Config vs tenant comparison
 Some Exchange Online rules may default to enabled on creation.
 Rules are explicitly set to disabled during deployment.
 
-📌 Disclaimer
+# 📌 Disclaimer
 
 This tool is provided as-is for deployment acceleration and standardization.
 Always validate in a test tenant before production use.
 
-⭐ Summary
+# ⭐ Summary
 
 DFO365 Deployment Tool V1 delivers:
 
 Reliable Defender for Office 365 baseline deployment
 Safe, repeatable execution
 Clear validation and testing approach
-🙌 Contributions
+
+# 🙌 Contributions
 
 Feedback and improvements are welcome.
 
