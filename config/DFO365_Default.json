@@ -5,10 +5,10 @@
   "Names": {
     "SafeLinksPolicy": "Microsoft-Zero-Trust-SafeLinks-Rule",
     "SafeLinksRule": "Microsoft-Zero-Trust-SafeLinks-Rule",
-    "SafeAttachmentsPolicy": "Microsoft-Zero-Trust-SafeAttachments-P1",
-    "SafeAttachmentsRule": "Microsoft-Zero-Trust-SafeAttachments-P1-Rule",
-    "AntiPhishPolicy": "Microsoft-Zero-Trust-AntiPhish-P1",
-    "AntiPhishRule": "Microsoft-Zero-Trust-AntiPhish-P1-Rule",
+    "SafeAttachmentsPolicy": "Microsoft-Zero-Trust-SafeAttachments",
+    "SafeAttachmentsRule": "Microsoft-Zero-Trust-SafeAttachments-Rule",
+    "AntiPhishPolicy": "Microsoft-Zero-Trust-AntiPhish",
+    "AntiPhishRule": "Microsoft-Zero-Trust-AntiPhish-Rule",
     "AntiSpamInboundPolicy": "Microsoft-Zero-Trust-AntiSpam-Inbound",
     "AntiSpamInboundRule": "Microsoft-Zero-Trust-AntiSpam-Inbound-Rule",
     "AntiSpamOutboundPolicy": "Microsoft-Zero-Trust-AntiSpam-Outbound",
@@ -54,7 +54,7 @@
     "HonorDmarcPolicy": true,
     "AuthenticationFailAction": "Quarantine",
     "SpoofQuarantineTag": "AdminOnlyAccessPolicy",
-    "PhishThresholdLevel": 2
+    "PhishThresholdLevel": 3
   },
   "AntiSpamInboundPolicy": {
     "BulkThreshold": 5,
