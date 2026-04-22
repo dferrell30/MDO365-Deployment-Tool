@@ -9,9 +9,13 @@
 # 📑 Table of Contents
 
 📌 Current Version
+
 🎯 Purpose
+
 🆕 What's New in V1.1
+
 ⚠️ Important Behavior
+
 🧱 Project Structure
 ⚙️ Requirements
 🔐 Permissions Required
