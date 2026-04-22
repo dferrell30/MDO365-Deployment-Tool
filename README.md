@@ -1,10 +1,14 @@
 # 🛡️ DFO365 Deployment Tool
 
-![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-V1.1.0-purple)
-![Status](https://img.shields.io/badge/Status-Stable-success)
+![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)
+![Module Dependency](https://img.shields.io/badge/Dependency-ExchangeOnlineManagement-blueviolet?style=for-the-badge)
+![Configuration](https://img.shields.io/badge/Config-JSON%20Driven-informational?style=for-the-badge)
+![UI](https://img.shields.io/badge/UI-WinForms-darkgreen?style=for-the-badge)
+![Security Model](https://img.shields.io/badge/Security-Zero%20Trust-critical?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-V1.1.0-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 # 📑 Table of Contents
 
