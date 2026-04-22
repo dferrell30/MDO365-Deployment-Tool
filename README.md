@@ -8,10 +8,6 @@ A Windows PowerShell deployment tool for configuring a Zero Trust baseline in Mi
 
 Microsoft Defender for Office 365 deployments often require repeated manual configuration across multiple policy areas. This tool provides a repeatable, operator-friendly way to deploy, validate, and report on a Zero Trust-aligned baseline from a single interface.
 
-## Interface Preview
-
-![DFO365 Deployment Tool UI](images/dfo365-ui.png)
-
 ---
 
 [![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge)](YOUR-REPO-URL/blob/main/scripts/DFO365_V1_1_FINAL_enable_services.ps1)
@@ -74,9 +70,13 @@ V1.1.0 — Stable Release
 
 This version introduces a fully interactive deployment UI, JSON-driven configuration, validation, reporting, and operational controls.
 
+---
 
-### 4. Add a “Key Features” section
-This reads better than scattered mentions.
+## Interface Preview
+
+![DFO365 Deployment Tool UI](images/dfo365-ui.png)
+
+---
 
 ## Key Features
 
