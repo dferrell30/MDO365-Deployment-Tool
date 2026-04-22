@@ -2,6 +2,8 @@
 
 A Windows PowerShell deployment tool for configuring a Zero Trust baseline in Microsoft Defender for Office 365, with JSON-driven configuration, policy status indicators, test mode, validation, and built-in HTML/JSON reporting.
 
+> **V1.1 is the current stable release** and includes UI-based deployment, validation, test mode, service enablement, and HTML reporting.
+
 ## Why This Tool Exists
 
 Microsoft Defender for Office 365 deployments often require repeated manual configuration across multiple policy areas. This tool provides a repeatable, operator-friendly way to deploy, validate, and report on a Zero Trust-aligned baseline from a single interface.
@@ -278,3 +280,23 @@ For best results:
 Keep JSON in /config
 Run script from /scripts
 Test before enabling services in production
+
+---
+
+## V1.1 Release Highlights
+
+- Dark-themed WinForms UI
+- Zero Trust JSON configuration model
+- Policy status indicators
+- Test mode preview
+- Enable Services control
+- HTML reporting from the UI
+- Improved connection and config handling
+
+---
+
+## Tested With
+
+- Windows PowerShell 5.1 & 7
+- ExchangeOnlineManagement module
+- Microsoft Defender for Office 365 policy deployment workflows
