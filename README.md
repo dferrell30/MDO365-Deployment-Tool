@@ -4,7 +4,7 @@ A Windows PowerShell deployment tool for configuring a Zero Trust baseline in Mi
 
 ## Interface Preview
 
-![DFO365 Deployment Tool UI](docs/images/dfo365-ui.png)
+![DFO365 Deployment Tool UI](images/dfo365-ui.png)
 
 ---
 
