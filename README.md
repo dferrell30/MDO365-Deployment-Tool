@@ -17,21 +17,37 @@
 ⚠️ Important Behavior
 
 🧱 Project Structure
+
 ⚙️ Requirements
+
 🔐 Permissions Required
+
 🚀 Quick Start
+
 🖥️ UI Overview
+
 🧪 Deployment Workflow
+
 🧪 Test Mode
+
 ✅ Validation
+
 📤 Export & Reporting
+
 🧠 Design Principles
+
 🔄 Versioning
+
 🚧 Roadmap
+
 💬 Notes
+
 📌 Disclaimer
+
 ⭐ Summary
+
 🙌 Contributions
+
 📌 Current Version
 
 V1.1.0 — Stable Release
