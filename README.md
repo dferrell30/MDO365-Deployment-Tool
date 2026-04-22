@@ -1,14 +1,16 @@
 # 🛡️ DFO365 Deployment Tool
 
-![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)
-![Module Dependency](https://img.shields.io/badge/Dependency-ExchangeOnlineManagement-blueviolet?style=for-the-badge)
-![Configuration](https://img.shields.io/badge/Config-JSON%20Driven-informational?style=for-the-badge)
-![UI](https://img.shields.io/badge/UI-WinForms-darkgreen?style=for-the-badge)
-![Security Model](https://img.shields.io/badge/Security-Zero%20Trust-critical?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-V1.1.0-purple?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+[![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge)](YOUR-REPO-URL/blob/main/scripts/DFO365_V1_1_FINAL_enable_services.ps1)
+[![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)](YOUR-REPO-URL)
+[![Dependency](https://img.shields.io/badge/Dependency-ExchangeOnlineManagement-blueviolet?style=for-the-badge)](YOUR-REPO-URL)
+[![Configuration](https://img.shields.io/badge/Config-JSON%20Driven-informational?style=for-the-badge)](YOUR-REPO-URL/blob/main/config/DFO365_ZeroTrust_FINAL.json)
+[![UI](https://img.shields.io/badge/UI-WinForms-darkgreen?style=for-the-badge)](YOUR-REPO-URL)
+[![Security Model](https://img.shields.io/badge/Security-Zero%20Trust-critical?style=for-the-badge)](YOUR-REPO-URL)
+[![Version](https://img.shields.io/badge/Version-V1.1.0-purple?style=for-the-badge)](YOUR-REPO-URL/releases)
+[![Status](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge)](YOUR-REPO-URL/releases)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](YOUR-REPO-URL/blob/main/LICENSE)
+
+---
 
 # 📑 Table of Contents
 
