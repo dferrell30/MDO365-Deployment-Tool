@@ -2,6 +2,10 @@
 
 A Windows PowerShell deployment tool for configuring a Zero Trust baseline in Microsoft Defender for Office 365, with JSON-driven configuration, policy status indicators, test mode, validation, and built-in HTML/JSON reporting.
 
+## Why This Tool Exists
+
+Microsoft Defender for Office 365 deployments often require repeated manual configuration across multiple policy areas. This tool provides a repeatable, operator-friendly way to deploy, validate, and report on a Zero Trust-aligned baseline from a single interface.
+
 ## Interface Preview
 
 ![DFO365 Deployment Tool UI](images/dfo365-ui.png)
@@ -68,6 +72,20 @@ V1.1.0 — Stable Release
 
 This version introduces a fully interactive deployment UI, JSON-driven configuration, validation, reporting, and operational controls.
 
+
+### 4. Add a “Key Features” section
+This reads better than scattered mentions.
+
+## Key Features
+
+- Zero Trust baseline deployment for Defender for Office 365
+- JSON-driven configuration
+- Built-in validation and test mode
+- Policy status indicators in the UI
+- Enable/disable services directly from the interface
+- JSON and HTML export
+- Safe re-run behavior (idempotent deployment)
+
 # 🎯 Purpose
 
 The DFO365 Deployment Tool simplifies and standardizes the deployment of:
@@ -124,8 +142,12 @@ Global Administrator
 or
 Security Administrator
 
-#🚀 Quick Start
-.\scripts\DFO365_V1_1.ps1
+## Quick Start
+
+```powershell
+Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber
+.\scripts\DFO365_V1_1_FINAL_enable_services.ps1
+```
 
 Then:
 
