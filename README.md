@@ -2,6 +2,12 @@
 
 A Windows PowerShell deployment tool for configuring a Zero Trust baseline in Microsoft Defender for Office 365, with JSON-driven configuration, policy status indicators, test mode, validation, and built-in HTML/JSON reporting.
 
+## Interface Preview
+
+![DFO365 Deployment Tool UI](docs/images/dfo365-ui.png)
+
+---
+
 [![PowerShell Version](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=for-the-badge)](YOUR-REPO-URL/blob/main/scripts/DFO365_V1_1_FINAL_enable_services.ps1)
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)](YOUR-REPO-URL)
 [![Dependency](https://img.shields.io/badge/Dependency-ExchangeOnlineManagement-blueviolet?style=for-the-badge)](YOUR-REPO-URL)
