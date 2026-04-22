@@ -108,7 +108,9 @@ All aligned to a Zero Trust baseline.
 ✅ Enable Services Toggle (live enforcement control)
 ✅ HTML Reporting directly from UI
 ✅ Improved deployment reliability & error handling
-⚠️ Important Behavior
+
+# ⚠️ Important Behavior
+
 Policies are created or updated
 Rules are deployed and can be:
 Disabled (default safe mode)
@@ -116,7 +118,7 @@ Enabled via Enable Services toggle
 No impact to mail flow during initial deployment
 Safe to run multiple times (idempotent)
 
-#🧱 Project Structure
+# 🧱 Project Structure
 repo/
 ├── scripts/
 │   └── DFO365_V1_1.ps1
@@ -132,11 +134,74 @@ repo/
 PowerShell 5.1 or later
 ExchangeOnlineManagement module
 
+<pre> ```powershell git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git; cd YOUR-REPO-NAME\scripts; Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber; .\DFO365_V1_1_FINAL_enable_services.ps1 ``` </pre>
+
 Install module:
 
 ```Powershell
 Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber
 ```
+
+# 🚀 How to Run the Tool
+
+1. Clone the Repository
+   
+```Powershell
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+```
+
+3. Navigate to the Scripts Folder
+
+cd YOUR-REPO-NAME\scripts
+
+✅ This is important — the script must be run from the scripts directory so it can locate the config file correctly.
+
+3. Install Required Module (if not already installed)
+Install-Module ExchangeOnlineManagement -Scope CurrentUser -Force -AllowClobber
+
+If prompted:
+
+Press Y to trust the repository
+4. Run the Tool
+.\DFO365_V1_1_FINAL_enable_services.ps1
+5. Use the Interface
+
+Once launched:
+
+Click Connect to Exchange Online
+Confirm the config loads:
+DFO365_ZeroTrust.json
+(Optional) Click Test Mode Preview
+Click Deploy Zero Trust Baseline
+(Optional) Click Enable Services to enforce policies
+Validate results
+Export HTML report if needed
+
+# ⚠️ Execution Policy (if blocked)
+
+If you see a script execution error:
+
+```Powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Then re-run the script.
+
+# 📁 Expected Folder Structure
+
+Make sure your repo looks like this:
+
+YOUR-REPO-NAME/
+├── scripts/
+│   └── DFO365_V1_1_FINAL_enable_services.ps1
+├── config/
+│   └── DFO365_ZeroTrust_FINAL.json
+
+# 💡 Tips
+Always run the script from the scripts folder
+Do not move the JSON file unless you update the script path
+Test in a non-production tenant first
+You can safely re-run the tool multiple times
 
 # 🔐 Permissions Required
 
@@ -161,7 +226,8 @@ Deploy or validate
 
 The UI includes:
 
-🔌 Connection Panel
+#🔌 Connection Panel
+
 🚀 Deploy Zero Trust Baseline
 🧩 Individual Policy Deployment Buttons
 🧪 Test Mode Preview
@@ -171,6 +237,7 @@ The UI includes:
 📜 Activity Log
 
 # 🧪 Deployment Workflow
+
 Launch tool
 Connect to tenant
 (Optional) Run Test Mode
@@ -215,6 +282,7 @@ Spam filtering
 Malware (EICAR)
 
 # 📤 Export & Reporting
+
 From UI:
 Export JSON
 Export HTML Report
@@ -222,7 +290,9 @@ HTML Report Includes:
 Tenant + account info
 All policies and rules
 Full configuration snapshot
-🧠 Design Principles
+
+# 🧠 Design Principles
+
 Idempotent deployment
 Safe-by-default
 Visual operational feedback
